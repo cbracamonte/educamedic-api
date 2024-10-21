@@ -10,7 +10,7 @@ import { verify } from 'jsonwebtoken';
 import { Observable } from 'rxjs';
 import authenticationConfig, {
   AuthenticationConfig,
-} from 'src/core/config/authentication.config';
+} from '../../../core/config/authentication.config'
 
 @Injectable()
 export class AuthGuard implements CanActivate {

@@ -1,16 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Courses, CoursesDocument } from '../schemas/courses.schema';
-import { HydratedDocument, Model, PipelineStage, SortOrder } from 'mongoose';
-import { PageOptionsRequestDtoExt } from 'src/features/common/dto/page-options-request.dto';
-import { Dictionary } from 'src/features/shared/types/dictionary.interface';
+import { Model, PipelineStage, SortOrder } from 'mongoose';
+import { PageOptionsRequestDtoExt } from '../../../../features/common/dto/page-options-request.dto';
+import { Dictionary } from '../../../../features/shared/types/dictionary.interface';
 import { GetCoursesResponseDto } from '../dto/get-courses.dto';
 import { ICourses } from '../interfaces/courses.interface';
-import { PagePaginationResponseDto } from 'src/features/common/dto/page-pagination-response.dto';
-import { PageDto } from 'src/features/common/dto/page.dto';
+import { PagePaginationResponseDto } from '../../../../features/common/dto/page-pagination-response.dto';
+import { PageDto } from '../../../../features/common/dto/page.dto';
 import { CreateCourseDto } from '../dto/create-course.dto';
 import { v4 as uuidV4 } from 'uuid';
-import { ICategory } from '../../categories/interfaces/category.interface';
 
 const sortingDictionary: Dictionary<string> = {
   createdDate: 'createdDate',

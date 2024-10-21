@@ -19,8 +19,8 @@ import {
   ApiProperty,
 } from '@nestjs/swagger';
 import { CoursesService } from '../services/courses.service';
-import { PageOptionsRequestDtoExt } from 'src/features/common/dto/page-options-request.dto';
-import { PageDto } from 'src/features/common/dto/page.dto';
+import { PageOptionsRequestDtoExt } from '../../../common/dto/page-options-request.dto';
+import { PageDto } from '../../../common/dto/page.dto';
 import { GetCoursesResponseDto } from '../dto/get-courses.dto';
 import { CreateCourseDto } from '../dto/create-course.dto';
 import { ICourses } from '../interfaces/courses.interface';
