@@ -80,5 +80,4 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "packageManager": "pnpm@8.4.0",
 }
