@@ -1,7 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsDateString, IsString } from 'class-validator';
+import { IsArray, IsDateString, IsString, IsUrl } from 'class-validator';
 import { CoursesStatusType } from '../enums/courses.enum';
 import { TFacebookData } from '../types/course.types';
+import { ICategory } from '../../categories/interfaces/category.interface';
+import { ICourseMode } from '../../courses-mode/interfaces/courses-mode.interface';
+import { IInstructor } from '../../instructors/interfaces/instructors.interface';
+import { ISponsor } from '../../sponsors/interfaces/sponsor.interface';
+import { ICourseReaction } from '../../courses-reaction/interfaces/courses-recation.interface';
+import { ICourseRating } from '../../courses-rating/interfaces/courses-rating.interface';
 
 export class GetCoursesResponseDto {
   @ApiProperty({
@@ -67,39 +73,41 @@ export class GetCoursesResponseDto {
   readonly status: CoursesStatusType;
 
   @ApiProperty({
-    description: 'List of category IDs',
-    example: ['5f8d0d55b54764421b7156c3', '6f9d1e66c65775532c8267d4'],
+    description: 'List of categories associated with the course',
+    type: [],
   })
   @IsArray()
-  readonly categoryIds: string[];
+  readonly categories: ICategory[];
 
   @ApiProperty({
-    description: 'List of course mode IDs',
-    example: ['5f8d0d55b54764421b7156c3'],
+    description: 'List of course modes associated with the course',
   })
   @IsArray()
-  readonly courseModeIds: string[];
+  readonly courseModes: ICourseMode[];
 
   @ApiProperty({
-    description: 'List of instructor IDs',
-    example: ['5f8d0d55b54764421b7156c3'],
+    description: 'List of instructors associated with the course',
   })
   @IsArray()
-  readonly instructorIds: string[];
+  readonly instructors: IInstructor[];
 
   @ApiProperty({
-    description: 'List of sponsor IDs',
-    example: ['5f8d0d55b54764421b7156c3'],
+    description: 'List of sponsors associated with the course',
   })
   @IsArray()
-  readonly sponsorIds: string[];
+  readonly sponsors: ISponsor[];
 
   @ApiProperty({
-    description: 'List of testimonial IDs',
-    example: ['5f8d0d55b54764421b7156c3'],
+    description: 'List of course reactions associated with the course',
   })
   @IsArray()
-  readonly testiomonialIds: string[];
+  readonly courseReactions: ICourseReaction[];
+
+  @ApiProperty({
+    description: 'List of course ratings associated with the course',
+  })
+  @IsArray()
+  readonly courseRatings: ICourseRating[];
 
   @ApiProperty({
     description: 'Facebook data associated with the course',
@@ -138,4 +146,17 @@ export class GetCoursesResponseDto {
   })
   @IsDateString()
   readonly publicationDate: string;
+
+  @ApiProperty({
+    description: 'Image URL of the course',
+    example: 'https://via.placeholder.com/300x200?text=Curso+1',
+  })
+  @IsUrl()
+  readonly imageUrl: string;
+  @ApiProperty({
+    description: 'Average Rating',
+    example: '5',
+  })
+  @IsUrl()
+  readonly averageRating: number;
 }

@@ -117,58 +117,58 @@ export class Courses implements ICourses {
   updatedDate: string;
 
   @ApiProperty({
-    description: 'Category IDs associated with the course',
+    description: 'Category UUIDs associated with the course',
     example: ['enfermeria'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  categoryIds: string[];
+  categoryUuids: string[];
 
   @ApiProperty({
-    description: 'Course modes (asynchronous, synchronous)',
+    description: 'Course mode UUIDs',
     example: ['modeAsync'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  courseModeIds: string[];
+  courseModeUuids: string[];
 
   @ApiProperty({
-    description: 'Instructor IDs associated with the course',
+    description: 'Instructor UUIDs associated with the course',
     example: ['janeSmith'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  instructorIds: string[];
+  instructorUuids: string[];
 
   @ApiProperty({
-    description: 'Sponsor IDs associated with the course',
+    description: 'Sponsor UUIDs associated with the course',
     example: ['techCorp'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  sponsorIds: string[];
+  sponsorUuids: string[];
 
   @ApiProperty({
-    description: 'Testimonial IDs associated with the course',
-    example: ['testimonialAlice'],
+    description: 'Course reactions UUIDs',
+    example: ['reactionUUID1'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  testimonialIds: string[];
+  courseReactionsUuids: string[];
 
   @ApiProperty({
-    description: 'Certificate IDs associated with the course',
-    example: ['InstrumentaciónQuirúrgicayCentralDeEsterilización'],
+    description: 'Course ratings UUIDs',
+    example: ['ratingUUID1'],
   })
   @Prop({ type: [String], required: true })
   @IsArray()
   @IsString({ each: true })
-  certificateIds: string[];
+  courseRatingsUuids: string[];
 
   @ApiProperty({
     description: 'URL to the online meeting',
@@ -181,17 +181,23 @@ export class Courses implements ICourses {
   @ApiProperty({
     description: 'Facebook data related to the course',
     example: {
-      id: '123456789',
-      likes: 120,
-      comments: 45,
-      shares: 30,
+      pageId: '123456789',
+      pageName: 'CoursePage',
+      eventUrl: 'https://www.facebook.com/events/1234567890',
     },
   })
   @Prop({ type: Object, required: true })
   @ValidateNested()
   facebookData: TFacebookData;
+
+  @ApiProperty({
+    description: 'URL of the course image',
+    example: 'https://example.com/image.png',
+  })
+  @Prop({ required: true })
+  @IsUrl()
+  imageUrl: string;
 }
 
 export type CoursesDocument = HydratedDocument<ICourses>;
 export const CoursesSchema = SchemaFactory.createForClass(Courses);
-

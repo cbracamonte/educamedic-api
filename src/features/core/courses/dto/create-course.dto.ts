@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsDateString, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsDateString, IsOptional, IsString, IsUrl } from 'class-validator';
 import { CoursesStatusType } from '../enums/courses.enum';
 import { TFacebookData } from '../types/course.types';
 
@@ -63,39 +63,32 @@ export class CreateCourseDto {
   readonly status: CoursesStatusType;
 
   @ApiProperty({
-    description: 'List of category IDs',
+    description: 'List of category UUIDs',
     example: ['5f8d0d55b54764421b7156c3', '6f9d1e66c65775532c8267d4'],
   })
   @IsArray()
-  readonly categoryIds: string[];
+  readonly categoryUuids: string[];
 
   @ApiProperty({
-    description: 'List of course mode IDs',
+    description: 'List of course mode UUIDs',
     example: ['5f8d0d55b54764421b7156c3'],
   })
   @IsArray()
-  readonly courseModeIds: string[];
+  readonly courseModeUuids: string[];
 
   @ApiProperty({
-    description: 'List of instructor IDs',
+    description: 'List of instructor UUIDs',
     example: ['5f8d0d55b54764421b7156c3'],
   })
   @IsArray()
-  readonly instructorIds: string[];
+  readonly instructorUuids: string[];
 
   @ApiProperty({
-    description: 'List of sponsor IDs',
+    description: 'List of sponsor UUIDs',
     example: ['5f8d0d55b54764421b7156c3'],
   })
   @IsArray()
-  readonly sponsorIds: string[];
-
-  @ApiProperty({
-    description: 'List of testimonial IDs',
-    example: ['5f8d0d55b54764421b7156c3'],
-  })
-  @IsArray()
-  readonly testiomonialIds: string[];
+  readonly sponsorUuids: string[];
 
   @ApiProperty({
     description: 'Facebook data associated with the course',
@@ -134,4 +127,11 @@ export class CreateCourseDto {
   })
   @IsDateString()
   readonly publicationDate: string;
+
+  @ApiProperty({
+    description: 'URL for the course image',
+    example: 'https://example.com/course-image.png',
+  })
+  @IsUrl()
+  readonly imageUrl: string;
 }

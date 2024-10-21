@@ -14,12 +14,21 @@ import mongodbConfig from './core/config/mongo.config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, corsConfig, mongodbConfig, swaggerConfig, authenticationConfig],
+      load: [
+        appConfig,
+        corsConfig,
+        mongodbConfig,
+        swaggerConfig,
+        authenticationConfig,
+      ],
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigType<typeof mongodbConfig>) => ({
         uri: config.uri,
+        retryWrites: true,
+        w: 'majority',
+        appName: config.appName,
       }),
       inject: [mongodbConfig.KEY],
     }),

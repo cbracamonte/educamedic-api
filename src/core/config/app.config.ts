@@ -14,6 +14,7 @@ export interface AppConfig {
   swaggerAppName: string;
   swaggerAppVersion: string;
   swaggerAppDescription: string;
+  mongodbAppName:string;
   mongodbUri: string;
 }
 
@@ -38,6 +39,7 @@ export default registerAs(
       'SWAGGER_APP_DESCRIPTION',
       'API for Educamedic project',
     ),
+    mongodbAppName: getenv('MONGODB_APP_NAME'),
     mongodbUri: getenv('MONGODB_URI'),
   }),
 );

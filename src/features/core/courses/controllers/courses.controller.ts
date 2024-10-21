@@ -102,25 +102,25 @@ export class CoursesController {
     return course[0];
   }
 
-  @Patch(':id')
-  @ApiOperation({ summary: 'Update a course by UUID' })
-  @ApiParam({
-    name: 'id',
-    description: 'Course UUID',
-    type: String,
-    required: true,
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Return the updated course.',
-    type: GetCoursesResponseDto,
-  })
-  @ApiResponse({ status: 404, description: 'Course not found.' })
-  async updateCourse(@Param('id') uuid: string, @Body() payload: ICourses) {
-    const result = await this.coursesService.updateCourse(uuid, payload);
-    if (!result) {
-      throw new NotFoundException('Course not found');
-    }
-    return result;
-  }
+  // @Patch(':id')
+  // @ApiOperation({ summary: 'Update a course by UUID' })
+  // @ApiParam({
+  //   name: 'id',
+  //   description: 'Course UUID',
+  //   type: String,
+  //   required: true,
+  // })
+  // @ApiResponse({
+  //   status: 200,
+  //   description: 'Return the updated course.',
+  //   type: GetCoursesResponseDto,
+  // })
+  // @ApiResponse({ status: 404, description: 'Course not found.' })
+  // async updateCourse(@Param('id') uuid: string, @Body() payload: ICourses) {
+  //   const result = await this.coursesService.updateCourse(uuid, payload);
+  //   if (!result) {
+  //     throw new NotFoundException('Course not found');
+  //   }
+  //   return result;
+  // }
 }

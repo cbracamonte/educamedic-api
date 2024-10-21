@@ -15,12 +15,13 @@ export interface ICourses {
   publicationDate: string;
   createdDate: string;
   updatedDate: string;
-  categoryIds: string[];
-  courseModeIds: string[];
-  instructorIds: string[];
-  sponsorIds: string[];
-  testimonialIds: string[];
-  certificateIds: string[];
+  categoryUuids: string[];
+  courseModeUuids: string[];
+  instructorUuids: string[];
+  sponsorUuids: string[];
+  courseReactionsUuids: string[];
+  courseRatingsUuids: string[];
   urlMeeting: string;
   facebookData: TFacebookData;
+  imageUrl: string;
 }
