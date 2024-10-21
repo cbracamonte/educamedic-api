@@ -14,7 +14,7 @@ export async function bootstrap(): Promise<any> {
   await setupGlobalPipes(app);
   await setupCors(app);
   await setupGlobalFilters(app);
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
   console.info('Nest application is running on port:', port);
   return app;
 }
