@@ -1,13 +1,14 @@
 # railway.toml
 
 [build]
-  builder = "PNPM"
-  
+  # Comando para instalar las dependencias
   install = "pnpm install"
 
+  # Comando para compilar la aplicación
   build = "pnpm run build"
 
 [start]
+  # Comando para ejecutar la aplicación en producción
   cmd = "pnpm run start:prod"
 
 [deploy]
