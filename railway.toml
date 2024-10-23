@@ -2,10 +2,10 @@
 
 [build]
   # Comando para instalar las dependencias
-  install = "pnpm install"
+  install = "npm install"
 
   # Comando para compilar la aplicación
-  build = "pnpm run build"
+  build = "npm run build"
 
 [start]
   # Comando para ejecutar la aplicación en producción
