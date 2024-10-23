@@ -2,7 +2,7 @@
 
 [build]
   # Comando para instalar las dependencias
-  install = "npm install"
+  install = "pnpm install --no-frozen-lockfile"
 
   # Comando para compilar la aplicación
   build = "npm run build"
