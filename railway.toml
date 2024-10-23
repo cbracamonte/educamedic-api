@@ -11,46 +11,42 @@
   cmd = "pnpm run start:prod"
 
 [deploy]
-  # Configuramos el puerto que utilizará Railway
   port = 8080
 
 [env]
   # Variables de entorno personalizadas
-    NODE_ENV=prod
-    # Application
-    APP_HOST=https://educamedic-api-production.up.railway.app/
-    APP_PORT=8080
-    SWAGGER_APP_HOST=https://educamedic-api-production.up.railway.app:8080/api/v1
-    APP_BASE_URL=https://educamedic-api-production.up.railway.app/
-    APP_NAME=educamedic-api
-    APP_VERSION=1.0.0
-    APP_DESCRIPTION=API for Educamedic
+  NODE_ENV = "prod"
+  APP_HOST = "https://educamedic-api-production.up.railway.app/"
+  APP_PORT = "8080"
+  SWAGGER_APP_HOST = "https://educamedic-api-production.up.railway.app:8080/api/v1"
+  APP_BASE_URL = "https://educamedic-api-production.up.railway.app/"
+  APP_NAME = "educamedic-api"
+  APP_VERSION = "1.0.0"
+  APP_DESCRIPTION = "API for Educamedic"
 
-    # Cors
-    CORS_ORIGIN=*
-    CORS_CREDENTIALS=false
-    CORS_ALLOWED_HEADERS=Accept, authorization, Authentication, Content-Type, If-None-Match, SourceType
-    CORS_METHODS=GET,POST,PUT,DELETE,OPTIONS
+  # Cors
+  CORS_ORIGIN = "*"
+  CORS_CREDENTIALS = "false"
+  CORS_ALLOWED_HEADERS = "Accept, Authorization, Authentication, Content-Type, If-None-Match, SourceType"
+  CORS_METHODS = "GET,POST,PUT,DELETE,OPTIONS"
 
-    # Auth
-    AUTHENTICATION_JWT_SECRET=
+  # Auth
+  AUTHENTICATION_JWT_SECRET = ""
 
-    # Swagger
-    SWAGGER_APP_NAME=Educamedic API
-    SWAGGER_APP_DESCRIPTION=Educamedic API Documentation
-    SWAGGER_APP_VERSION=1.0.0
-    SWAGGER_APP_PATH=api
+  # Swagger
+  SWAGGER_APP_NAME = "Educamedic API"
+  SWAGGER_APP_DESCRIPTION = "Educamedic API Documentation"
+  SWAGGER_APP_VERSION = "1.0.0"
+  SWAGGER_APP_PATH = "api"
 
+  # Mongodb
+  MONGODB_APP_NAME = "meditech-cluster"
+  MONGODB_URI = "mongodb+srv://admin_meditech:A8DozVcybxjRH20a@meditech-cluster.4djvk.mongodb.net/educamedic-db"
 
-    # Mongodb
-    # MONGODB_URI="mongodb://localhost:27017/educamedic-db"
-    MONGODB_APP_NAME=meditech-cluster
-    MONGODB_URI=mongodb+srv://admin_meditech:A8DozVcybxjRH20a@meditech-cluster.4djvk.mongodb.net/educamedic-db
+  MONGO_SSL_CRT_PATH = ""
 
-    MONGO_SSL_CRT_PATH=""
-
-    # Mongodb Atlas
-    MONGODB_ATLAS_PUBLIC_IP=201.230.154.214
-    MONGODB_ATLAS_CLUSTER=meditech-cluster
-    MONGODB_ATLAS_USER=admin_meditech
-    MONGODB_ATLAS_PASSWORD=A8DozVcybxjRH20a
+  # Mongodb Atlas
+  MONGODB_ATLAS_PUBLIC_IP = "201.230.154.214"
+  MONGODB_ATLAS_CLUSTER = "meditech-cluster"
+  MONGODB_ATLAS_USER = "admin_meditech"
+  MONGODB_ATLAS_PASSWORD = "A8DozVcybxjRH20a"
